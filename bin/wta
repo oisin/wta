@@ -2,18 +2,42 @@
 
 require 'wta'
 require 'colorize'
+require 'optparse'
 
-Wta.reds.each_with_index { |r, inx|
+# Default to North America Region
+
+opt_region = "NA"
+opt_all_status = false
+ARGV.options do |opts|
+  opts.on("-r", "--region=val", String, "Select region NA, SA, EU, AP. Defaults to NA") { |val| opt_region = val.upcase}
+  opts.on("-a", "--all", "Include services that are operating normally in the listing") { opt_all_status = true }
+  opts.parse!
+end
+
+unless Wta.regions.include?(opt_region)
+  puts "Unknown region (#{region}), should be one of #{Wta.regions}"
+  exit 1
+end
+
+Wta.reds(opt_region).each_with_index { |r, inx|
   str = sprintf "%3i", inx + 1
   puts "#{str}:  #{r}".black.on_red
 }
 
-Wta.yellows.each_with_index { |y, inx|
+Wta.yellows(opt_region).each_with_index { |y, inx|
   str = sprintf "%3i", inx + 1
   puts "#{str}:  #{y}".black.on_yellow
 }
 
-Wta.infos.each_with_index { |i, inx|
+Wta.infos(opt_region).each_with_index { |i, inx|
   str = sprintf "%3i", inx + 1
   puts "#{str}:  #{i}".light_blue
 }
+
+if (opt_all_status)
+  Wta.operating(opt_region).each_with_index { |i, inx|
+    str = sprintf "%3i", inx + 1
+    puts "#{str}:  #{i}".green
+  }
+end
+
