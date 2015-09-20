@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require 'wta'
+require 'colorize'
+
+Wta.reds.each_with_index { |r, inx|
+  str = sprintf "%3i", inx + 1
+  puts "#{str}:  #{r}".black.on_red
+}
+
+Wta.yellows.each_with_index { |y, inx|
+  str = sprintf "%3i", inx + 1
+  puts "#{str}:  #{y}".black.on_yellow
+}
+
+Wta.infos.each_with_index { |i, inx|
+  str = sprintf "%3i", inx + 1
+  puts "#{str}:  #{i}".light_blue
+}

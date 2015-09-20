@@ -1,0 +1,305 @@
+/* CSS Style for Service Health Dashboard */
+
+body { margin: 0; }
+
+.container {
+    /* total width is width + padding + border + margin.  Goal width here is 800px */
+    width: 800px;
+    margin: auto;
+    padding: 10px;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+h3 {
+	font-size: 13.5pt;
+}
+
+a {
+    color: #000088;
+/*    text-decoration: none; */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a img {
+    border: 0;
+}
+
+table {
+	font-size: 12px;
+}
+
+.linkbar {
+	background-color: #eeeeee;
+	border-top: 3px solid #228822;
+	padding: 8px;
+	margin: 8px 0 0 0;
+}
+
+.linkbar a {
+	text-decoration: none;
+	color: #444444;
+	font-weight: bold;
+}
+
+.gradient {
+	background-color: #eeeeee;
+	background-image: url("/images/gradient90.gif");
+	background-repeat: repeat-x;
+}
+
+th.gradient {
+	background-image: url("/images/gradient24.gif");
+	border-bottom: 1px solid #cccccc;
+	color: #444444;
+}
+
+td.gradient {
+	background-image: url("/images/gradient32.gif");
+	border: 1px solid #cccccc;
+	/* color: #444444; */
+}
+
+.whitebg {
+	background-color: white;
+}
+
+.bordered {
+	border: 1px solid #cccccc;
+}
+
+.bordered-dark {
+    border: 1px solid #888888;
+}
+
+.bb { /* border-bottom */
+    border-bottom: 1px solid #cccccc;
+}
+
+.fullWidth {
+	width: 100%;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.floatRight {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
+.top {
+	vertical-align: top;
+}
+
+.middle {
+    vertical-align: middle;
+}
+
+.center {
+	text-align: center;
+}
+
+.margin8 {
+	margin: 8px;
+}
+
+.pad2 { 
+	padding: 2px;
+}
+
+.pad04 {
+	padding: 4px 0 4px 0;
+}
+
+.pad4 {
+	padding: 4px;
+}
+
+.pad8 {
+	padding: 8px;
+}
+
+.greybg {
+	background-color: #eeeeee;
+}
+
+.whitebg {
+	background-color: #ffffff;
+}
+
+.yellowbg {
+    background-color: #fcfdef;
+}
+
+.yellowfg {
+    color: #997744;
+}
+
+.greyfg {
+    color: #444444;
+}
+
+.orangefg {
+    color: #dd6622;
+}
+
+.archivePopup {
+	position: absolute;
+	z-index: 10;
+	width: 35em;
+	bottom: 0px;
+	right: 20px;
+	text-align: left;
+}
+
+/* One particular table styled individually. */
+
+table.statusHistory {
+	border-collapse: collapse;
+}
+
+table.statusHistory  th, table.statusHistory td {
+	height: 32px;
+	border: 1px solid #cccccc;
+}
+
+table.statusHistory th {
+    color: #444444;
+    background-color: #eeeeee;
+    background-image: url("/images/gradient32.gif");
+	vertical-align: middle;
+	text-align: center;
+    font-weight: normal;
+}
+
+table.statusHistory td {
+	background-color: white;
+}
+
+table.statusHistory table td {
+	text-align: left;
+	border: 0;
+}
+
+table.statusHistory table td div {
+	width: 100%;
+}
+
+div.statusHistoryContentParent {
+    overflow: visible;
+    /* width: 470px;
+	height: 100%;
+	background-color: #cc4444;
+    margin-left: -1px;
+    margin-right: -1px;
+    z-index: 0;
+    vertical-align: top;
+    position: relative; */
+}
+
+table.statusHistoryContent {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 454px;
+    z-index: 0;
+	/* display: none; */
+}
+
+table.statusHistoryContent td, table.statusHistoryContent th{
+    width: 58px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table.statusHistoryContentLeft {
+    width: 300px;
+	margin-right: -1px;
+}
+
+table.statusHistoryContentLeft td {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+table.statusHistoryContentRight {
+    width: 32px;
+    border-collapse: collapse;
+	/* margin-left: -1px; */
+}
+
+table.statusHistoryContentRight td {
+    width: 32px;
+    background-image: url("/images/gradient32.gif");
+    background-color: #eeeeee;
+}
+
+.yui-skin-sam .yui-navset .yui-nav .tabStandard a { 
+  text-decoration: none;
+  font-size: 13px;
+  color: black;
+  border-top: #B9B8B6 1px solid;
+  border-left: #B9B8B6 1px solid;
+  border-right: #B9B8B6 1px solid;
+  border-bottom: #B9B8B6 1px solid;
+  padding: 8px 15px;
+  background: url("/yui/assets/skins/sam/sprite.png") repeat scroll 0 0;
+}
+  
+.yui-skin-sam .yui-navset .yui-nav .selected a { 
+  border-top: #FF9900 2px solid;
+  border-left: #B9B8B6 1px solid;
+  border-right: #B9B8B6 1px solid;
+  border-bottom: white 1px solid;
+  font-weight:bold;
+  background: white none repeat scroll 0 0;
+  background-color: white;
+}
+
+.yui-skin-sam .yui-navset .yui-nav .selected a { 
+  border-top: #FF9900 2px solid;
+  border-left: #B9B8B6 1px solid;
+  border-right: #B9B8B6 1px solid;
+  font-weight:bold;
+  background: white none repeat scroll 0 0;
+  background-color: white;
+}
+
+.yui-skin-sam .yui-navset ul { 
+  border-bottom: 1px solid white;
+}
+
+.yui-skin-sam .yui-navset li { 
+  position: relative;
+  top: 2px;
+}
+
+.awsc-notice {
+  font-family: "Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif;
+  height: 20px;
+  line-height: 20px;
+  padding: 5px;
+  background-color: yellow;
+  color: black;
+  text-align: center;
+}
