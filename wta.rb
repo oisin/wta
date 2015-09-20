@@ -5,9 +5,10 @@ require 'colorize'
 u = URI.parse('http://status.aws.amazon.com/')
 html = Nokogiri::HTML(open(u))
 
-reds = html.css('#current_events_block td img').select { |i| i.attributes['src'].value == '/images/status3.gif' }
-yellas = html.css('#current_events_block td img').select { |i| i.attributes['src'].value == '/images/status2.gif' }
-infos = html.css('#current_events_block td img').select { |i| i.attributes['src'].value == '/images/status1.gif' }
+all_status_images = html.css('#current_events_block td img')
+reds = all_status_images.select { |i| i.attributes['src'].value == '/images/status3.gif' }
+yellas = all_status_images.select { |i| i.attributes['src'].value == '/images/status2.gif' }
+infos = all_status_images.select { |i| i.attributes['src'].value == '/images/status1.gif' }
 
 reds.each_with_index { |r, inx|
   str = sprintf "%3i", inx + 1
