@@ -5,13 +5,8 @@ Install this as a gem, and it will pull in the `wta` script.
 
 ```
 $ gem install wta
-$ wta
-```
-
-If you are using `rbenv`, you'll need to rehash after the install:
-
-```
-$ gem install wta
-$ rbenv rehash
-$ wta
+$ wta -help
+Usage: wta [options]
+    -r, --region=val                 Select region NA, SA, EU, AP. Defaults to NA
+    -a, --all                        Include services that are operating normally in the listing
 ```
