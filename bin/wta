@@ -11,6 +11,8 @@ opt_all_status = false
 ARGV.options do |opts|
   opts.on("-r", "--region=val", String, "Select region NA, SA, EU, AP. Defaults to NA") { |val| opt_region = val.upcase}
   opts.on("-a", "--all", "Include services that are operating normally in the listing") { opt_all_status = true }
+  opts.on("-s", "--summary", "Add a summary header for services") { opt_summary = true }
+  opts.on_tail("-h", "--help")  
   opts.parse!
 end
 
@@ -19,23 +21,35 @@ unless Wta.regions.include?(opt_region)
   exit 1
 end
 
-Wta.reds(opt_region).each_with_index { |r, inx|
+reds = Wta.reds(opt_region)
+yellows = Wta.yellows(opt_region)
+infos = Wta.infos(opt_region)
+
+puts("Service disruption: #{reds.length} ".black_on_red) unless reds.empty?
+puts("Performance issues: #{yellows.length} ".black.on_yellow) unless yellows.empty?
+puts("Informational messages: #{infos.length} ".light_blue) unless infos.empty?
+
+greens = opt_all_status ? Wta.operating(opt_region) : []
+
+puts("Operationing normally: #{greens.length} ".green) unless greens.empty?
+
+reds.each_with_index { |r, inx|
   str = sprintf "%3i", inx + 1
   puts "#{str}:  #{r}".black.on_red
 }
 
-Wta.yellows(opt_region).each_with_index { |y, inx|
+yellows.each_with_index { |y, inx|
   str = sprintf "%3i", inx + 1
   puts "#{str}:  #{y}".black.on_yellow
 }
 
-Wta.infos(opt_region).each_with_index { |i, inx|
+infos.each_with_index { |i, inx|
   str = sprintf "%3i", inx + 1
   puts "#{str}:  #{i}".light_blue
 }
 
 if (opt_all_status)
-  Wta.operating(opt_region).each_with_index { |i, inx|
+  greens.each_with_index { |i, inx|
     str = sprintf "%3i", inx + 1
     puts "#{str}:  #{i}".green
   }
