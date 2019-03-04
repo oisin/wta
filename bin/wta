@@ -12,7 +12,6 @@ ARGV.options do |opts|
   opts.on("-r", "--region=val", String, "Select region NA, SA, EU, AP. Defaults to NA") { |val| opt_region = val.upcase}
   opts.on("-a", "--all", "Include services that are operating normally in the listing") { opt_all_status = true }
   opts.on("-s", "--summary", "Add a summary header for services") { opt_summary = true }
-  opts.on_tail("-h", "--help")  
   opts.parse!
 end
 
@@ -31,7 +30,7 @@ puts("Informational messages: #{infos.length} ".light_blue) unless infos.empty?
 
 greens = opt_all_status ? Wta.operating(opt_region) : []
 
-puts("Operationing normally: #{greens.length} ".green) unless greens.empty?
+puts("Operationing normally: #{greens.length} ".green) unless greens.empty? 
 
 reds.each_with_index { |r, inx|
   str = sprintf "%3i", inx + 1

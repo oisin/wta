@@ -8,6 +8,7 @@ $ gem install wta
 $ wta -help
 Usage: wta [options]
     -r, --region=val                 Select region NA, SA, EU, AP. Defaults to NA
+    -s, --summary                    Add a summary header for services
     -a, --all                        Include services that are operating normally in the listing
 ```
 
