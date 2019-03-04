@@ -18,10 +18,10 @@ Gem::Specification.new do |spec|
   spec.executables   = ["wta"]
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.10"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "minitest"
+  spec.add_development_dependency "bundler", "~> 2.0"
+  spec.add_development_dependency "rake", "~> 12.3"
+  spec.add_development_dependency "minitest", "~> 5.11"
 
-  spec.add_dependency "nokogiri", "~> 1.6", ">= 1.6.6.2"
-  spec.add_dependency "colorize", "~> 0.7", ">= 0.7.7"
+  spec.add_dependency "nokogiri", "~> 1.10"
+  spec.add_dependency "colorize", "~> 0.8"
 end
