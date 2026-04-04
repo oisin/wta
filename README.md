@@ -1,3 +1,6 @@
+# This code is obsolete now, since AWS has completely changed their status pages
+
+
 # wta
 What The Amazon?  Command line scraper for AWS service status page.
 
